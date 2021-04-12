@@ -1,7 +1,24 @@
 import React, { useState } from "react";
-// import data from "./data";
-// import List from "./List";
+import data from "../../data";
+import { List } from "../List/List.component";
 
 export const App = () => {
-  return <h2>rrreminder project setup</h2>;
+  const [people, setPeople] = useState(data);
+
+  return (
+    <main>
+      <section className="container">
+        <h3>{people.length} birthdays today</h3>
+        <List people={people}/>
+        <button
+          onClick={() => {
+            console.log("you clicked me");
+          }}
+        >
+          {" "}
+          Clear All
+        </button>
+      </section>
+    </main>
+  );
 };
